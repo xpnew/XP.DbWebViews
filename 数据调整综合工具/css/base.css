@@ -1,0 +1,238 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/**************************************************************************
+ base.css: 前台页面的基础页，首页和内面的基础部分。
+ 跟comm.css不同，comm是前台、后台各种页面的公共部分。
+ bass.css需要定义前台页面的具体宽度、前台页面的顶部、导航、底部等具体结构。
+ 首页特别的部分放在index.css
+ 内页特别的部分放在inner.css
+ **************************************************************************/
+
+body{ 
+	color: #333;
+	background-color: #f3f3f3;
+}
+body, div, td, p{	font-size:12px;	 font-family:"微软雅黑","黑体",  "Arial Black";  }
+a {text-decoration:none; }
+a:hover {}
+a:visited{}
+a img{border:0px;}
+.BigDiv{
+	margin: 0px auto;	clear: both;
+	width: 1010px;
+}
+
+
+a.green {	font-size: 14px;	font-weight: bold;	color: #5a8525;}
+
+a.pink{color:#e70aa6;font-size: 14px;font-weight: bold;}
+
+a.white{font-size: 14px;font-weight: bold;	color: #FFF;}
+
+a.blue1{color:#2873a5;font-size: 14px;font-weight: bold;}
+a.blue2{color:#0082f1;font-size: 14px;font-weight: bold;}
+a.orange{color:#f68236;} /*skin-color*/
+
+
+.tb01 .tr_on{ background-color:#b1efec;}
+
+
+.bold1{color:#7d7d7d;  font-family:"黑体", "微软雅黑", "Arial Black";  font-weight:bold;}
+
+/* 
+不同区块之间的空白间隙， 配合div.room2size 使用，通过指定具体数字确定两块之间的间隙
+例如：
+<div class="room2size room14"></div>
+所以需要把具体大小放在后面。
+*/
+div.room01{height: 1px;}
+div.room02{height: 2px;}
+div.room04{height: 4px;}
+div.room05{height: 5px;}
+div.room06{height: 6px;}
+div.room07{height: 7px;}
+div.room08{height: 8px;}
+div.room09{height: 9px;}
+div.room10{height:10px;}
+div.room11{height:11px;}
+div.room12{height:12px;}
+div.room13{height:12px;}
+div.room14{height:14px;}
+div.room15{height:15px;}
+div.room16{height:16px;}
+div.room18{height:18px;}
+div.room21{height:21px;}
+div.room22{height:22px;}
+div.room10{height:10px;}
+div.room20{height:20px;}
+div.room30{height:30px;}
+div.room40{height:40px;}
+
+/*  字符间隔  避免使用一堆的空格  */
+.letter-space {padding-right:1em;padding-left:1em;}
+.letter-space2 {padding-right:2em;padding-left:2em;}
+.letter-space4 {padding-right:4em;padding-left:4em;}
+
+
+
+/*==================     优先确定各个部分的高度    ==========================*/
+#head{height:50px;}
+#top{height:147px;}
+#banner{height:358px;}
+#nav01{height:42px;} 
+#mid{height:auto!important; height:600px; min-height:600px;}
+#btm{height:auto!important; height:40px; min-height:40px;}
+
+
+
+/*==============     整体背景    ================*/
+body{}
+#top_outer{ margin:0 auto; }
+#mid_outer{background:url(../images/bg_mid.png) no-repeat center bottom;}
+#btm_outer{background:#3a3a3a;}
+
+
+
+
+
+
+/*==================     顶部样式    ==========================*/
+
+#top_outer{height:auto; background:#FFF url(../img/top_bg_01.png) repeat-x center top;}
+
+#head .sns{height:46px;}
+#head .sns li{width:100px; height:46px; float:right;position: relative;}
+#head .sns li.space{width:1px;}
+#head .sns li .erwei {position: absolute; }
+
+
+/*TOP  920*144*/
+#top{}
+
+#top { clear:both; margin-bottom:20px; position:relative;}
+
+#top .center{ width:100%; text-align:center;}
+#top .left{ position:absolute;left:0;}
+#top .right{ position:absolute;right:0;}
+
+
+/*=========     菜单内置样式    ============*/
+
+
+/*==================     banner    ==========================*/
+
+#banner_outer{height:504px;}
+#banner{max-width:1600px; width:100%;  height:504px;; text-align:center;}
+
+
+
+
+
+/*==================     单独横线    ==========================*/
+#line{ background:url(../img/line_bg.png) repeat-x center top; height:49px;}
+
+
+
+/*==================     中部主体样式    ==========================*/
+#mid{}
+
+#mid .col50{width:50%;}
+#mid .col33{width:33.333%;}
+#mid .col25{width:25%;}
+#mid .bt_block{  height:44px; line-height:44px; text-align: center; background:#3a3a3a; color:#fff; font-size:16px;}
+#mid .bt_block a{ display:block; height:44px; width:100%; color:#fff; }
+/*----  选项卡式页面  ----*/
+/*抵销right 的外边框和内补丁*/
+#mid .tabright{padding:0px; border:none;}
+
+
+#mid .tab{ height:26px; background:url(../images/normal/tab_bg_underline.gif) repeat-x center bottom;}
+
+#mid .tabcontent{ border-top:none; }
+#mid .tab li{  height:44px; line-height:44px; float:left;background:#3a3a3a;}
+#mid .tab li.cur{ background:#f27f03;}
+
+#mid .tab li.last{margin-right: 0}
+#mid .tab li a{color:#b0b0b0;}
+#mid .tab li.cur a, #mid .tab li a:hover{color:#f58220;}
+
+#mid .tabcontent .sub{display:none;}
+#mid .tabcontent .cur{display:block;}
+
+
+#mid .line1{ background:url(../img/line_bg.png) repeat-x center top; height:49px; width:100%; clear:both;}
+
+#mid .line2{}
+
+#mid .news-list{}
+#mid .news-list .col50{float:left; height:272px;}
+#mid .news-list .pic{background:url(../img/index/index_pic_bg.gif) no-repeat left top; }
+#mid .news-list .pic img{width:497px; height:264px;}
+#mid .news-list .pic a.picbox{ display:block ; overflow: hidden; width:497px; height:264px;}
+#mid .news-list .text{}
+
+#mid .news-list .t0{}
+#mid .news-list .t1{margin:0 38px; height:40px;font-family:'宋体',Arial, Helvetica, sans-serif; color:#949494; }
+#mid .news-list .t2{margin:0 38px; height:102px;}
+#mid .news-list .t3{margin:0 38px; height:102px;font-family:'宋体',Arial, Helvetica, sans-serif; color:#949494; line-height:18px; }
+#mid .news-list .t4{margin:0 38px; height:25px; color:#393939;font-weight:bold;}
+#mid .news-list .t5{}
+#mid .news-list .t2 a{color:#393939; font-size:30px; font-weight:bold;}
+#mid .news-list .t2 a:hover{ color:#f27e03
+;}
+#mid .news-list .t4 a{color:#393939; font-size:16px; font-weight:bold;}
+
+#mid .news-list{}
+#mid .news-list{}
+
+
+/*-------页面按钮样式-------*/
+#mid .bt01{}
+
+/*直接提交按钮*/
+#mid .submit{}
+/*ajax提交按钮*/
+#mid .ajaxbt{}
+
+
+
+/*
+#mid .part1~#mid .part2用在首页（未用到的部分保留）
+ 首页参见：index.css
+#mid .part6~#mid .part9用在内页（未用到的部分保留）
+ 内页参见：inner.css
+*/
+
+/*==================     返回顶部    ==========================*/
+
+.asd-return{position:fixed;  bottom: 30px; right:5px; width:47px; height:102px; display:none;}
+.asd-return .erwei{ position:absolute; right:47px; display:none;}
+
+/*==================     底部样式    ==========================*/
+#btm_outer{height:auto!important; height:137px; min-height:137px;}
+
+
+#btm{ position:relative;}
+
+#btm .col50{width:50%;}
+#btm .col33{width:33.333%;}
+#btm .col25{width:25%;}
+
+#btm .left{ float:left; }
+#btm .right{ float:right; }
+#btm .half{width:49%; min-width:240px;}
+
+#btm ul.link1{}
+#btm .link1 li{}
+#btm li span.menu{}
+#btm li span.menu01{}/*指定背图用*/
+#btm li span.menu02{}
+#btm li span.menu03{}
+#btm li span.menu04{}
+#btm li span.menu img{width:81px; height:135px;}
+
+#btm,#btm div, #btm p, #btm a,#btm .nav,#btm .nav a{color:#9a9a9a;}
+
+
+

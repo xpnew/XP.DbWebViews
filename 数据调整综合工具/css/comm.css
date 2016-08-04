@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {	margin: 0px;padding: 0px;}
+
+body, div, td, p{	font-size:9pt;}
+form, input{margin:0px;	padding:0px;}
+a img{border:0px;}
+ul,li,p{ margin:0; padding:0; list-style:none; }
+dl,dt,dd{margin:0; padding:0;}
+
+
+
+
+@font-face {
+    font-family: "MyriadPro";
+    src: url("MyriadPro-Regular.eot");
+}
+
+@font-face {
+    font-family: "MyriadPro";
+    src: url(//:) format("no404"), url("MyriadPro-Regular.woff") format("woff"), url("MyriadPro-Regular.ttf") format("truetype"), url("MyriadPro-Regular.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+.UIBox01{}
+.UIBox01 .Table01
+{
+	border-collapse:collapse;
+	width:98%;
+	margin:0px auto;
+}
+
+
+table.Table01
+{
+	/*border: 1px solid #03C;	*/
+}	
+
+table.Table01 td
+{
+	/*border: 1px solid #03C;	*/
+}	
+table.Table01 th
+{
+	/*border: 1px solid #03C;	*/
+}	
+
+.UIBox01 td.Title01
+{
+	font-size:12pt;
+	line-height: 24px;
+	font-weight: bold;
+	color: #FFF;
+	background-color: #06C;
+	height: 24px;	
+}
+.CL {
+	font-size: 0px;
+	clear: both;
+	border-top: transparent 1px solid;
+	margin-top: -1px !important;
+	visibility: hidden;
+	height: 0px;
+	background-attachment: scroll;
+	background-color:#06C;
+	background-image: none;
+	background-repeat: repeat;
+	background-position: 0% 0%;
+}
+div.room2size{height:1px; margin:0; padding:0; font-size:0;clear: both;background-attachment: scroll;background-image: none;background-color:transparent;}
+
+.clearbox {
+	CLEAR: both; BORDER-TOP: transparent 1px solid; MARGIN-TOP: -1px !important; FONT-SIZE: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; VISIBILITY: hidden; HEIGHT: 0px
+}
+.clearbox2 {
+	CLEAR: both; BORDER-TOP: transparent 1px solid; MARGIN-TOP: -1px !important; FONT-SIZE: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; VISIBILITY: hidden; HEIGHT: 0px
+}
+td.space{font-size: 0px;margin-top: -1px !important;}
+

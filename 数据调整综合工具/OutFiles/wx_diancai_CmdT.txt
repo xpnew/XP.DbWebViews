@@ -1,0 +1,36 @@
+
+{Loop:ClassInput1}{TM:PropertyTypeName$FirstUpper} {TM:ColumnName$FirstLower},{/Loop:ClassInput1}
+
+{Loop:ClassInput2}
+this._{TM:ColumnName}= {TM:ColumnName$FirstLower};{/Loop:ClassInput2}
+
+{Loop:PrivatePara}
+	private {TM:PropertyTypeName$FirstUpper} _{TM:ColumnName};{/Loop:PrivatePara}
+
+{Loop:JavaTypeProperty}
+	public {TM:PropertyTypeName$FirstUpper} get{TM:ColumnName}() {
+		return this._{TM:ColumnName};
+	}
+	public void set{TM:ColumnName}({TM:PropertyTypeName$FirstUpper}  {TM:ColumnName$FirstLower}) {
+		this._{TM:ColumnName}= {TM:ColumnName$FirstLower};
+	}{/Loop:JavaTypeProperty}
+
+{Loop:ColumnName4InsertCmd}[{TM:ColumnName}],{/Loop:ColumnName4InsertCmd}
+{Loop:JavaSyl4InsertCmd}?,{/Loop:JavaSyl4InsertCmd}
+{Loop:InertEntity}object.get{TM:ColumnName$FirstUpper} (),
+{/Loop:InertEntity}
+
+{Loop:FillEntity}
+NewEntity.set{TM:ColumnName}(rs.get{TM:PropertyTypeName$FirstUpper}("{TM:ColumnName}"));{/Loop:FillEntity}
+
+
+{Loop:ColumnNameJsonTm}\"{TM:ColumnName}\":\"%s\",{/Loop:ColumnNameJsonTm}
+
+
+{Loop:ColFullJson}
+CurrentEntity.get{TM:ColumnName}(),{/Loop:ColFullJson}
+
+
+
+
+

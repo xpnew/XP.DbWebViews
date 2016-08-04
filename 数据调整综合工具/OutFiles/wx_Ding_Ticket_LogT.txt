@@ -1,0 +1,12 @@
+{Loop:ColumnsDict}
+  _ColumnsDict.Add("{TM:ColumnName}", new SqlParameter("@{TM:ColumnName}",SqlDbType.{TM:SqlType}));{/Loop:ColumnsDict}
+
+
+{Loop:Model2Parameter}
+  Result[{TM:LoopNum}].Value = model.{TM:ColumnName};{/Loop:Model2Parameter}
+
+{Loop:Row2Model}
+ if (row["{TM:ColumnName}"] != null && row["{TM:ColumnName}"].ToString() != "")
+                {
+                    ResultModel.{TM:ColumnName}= {TM:PropertyTypeName}.Parse(row["{TM:ColumnName}"].ToString());
+                }{/Loop:Row2Model}
