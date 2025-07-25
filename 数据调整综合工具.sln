@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XP.Comm", "..\XP公共类�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XP.Util", "..\XP公共类库\XP.Util\XP.Util.csproj", "{69F27CB0-4665-4422-98FC-5FBD927CDA0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XP.Util.Web", "..\XP公共类库\XP.Util.Web\XP.Util.Web.csproj", "{A82E5F89-C314-4F08-B36C-A9CE7E3F1951}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XP.Util.Web", "..\XP公共类库\Web\XP.Util.Web\XP.Util.Web.csproj", "{A82E5F89-C314-4F08-B36C-A9CE7E3F1951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XP.Comm.Web", "..\XP公共类库\XP.Comm.Web\XP.Comm.Web.csproj", "{DEB0EF71-5473-4A09-B36A-6FA356AB6006}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XP.Comm.Web", "..\XP公共类库\Web\XP.Comm.Web\XP.Comm.Web.csproj", "{DEB0EF71-5473-4A09-B36A-6FA356AB6006}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "输入输出", "输入输出", "{658FA22D-A452-49E7-8968-58C04CEDD43B}"
 EndProject
