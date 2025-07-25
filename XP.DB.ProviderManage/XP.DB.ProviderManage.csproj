@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B9135DD5-35C4-4DCB-BF84-C20B443F4DA6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XP.DB.ProviderManage</RootNamespace>
+    <AssemblyName>XP.DB.ProviderManage</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ColumnsDAL.cs" />
+    <Compile Include="DbObjectDAL.cs" />
+    <Compile Include="Enum2List.cs" />
+    <Compile Include="ProviderDAL.cs" />
+    <Compile Include="ProviderInfoDAL.cs" />
+    <Compile Include="SchemaDAL.cs" />
+    <Compile Include="TableDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemplateDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\项目\XP公共类库\XP.Comm\XP.Comm.csproj">
+      <Project>{0429227a-a0ed-4db2-86bf-4105ba1e33d4}</Project>
+      <Name>XP.Comm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\项目\XP公共类库\XP.Util\XP.Util.csproj">
+      <Project>{d3aabbec-b6ae-4a7c-9c24-83353507efc1}</Project>
+      <Name>XP.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\项目\XP公共类库\数据库\XP.DB.Common\XP.DB.Comm.csproj">
+      <Project>{2840e5c4-3bf5-4c57-958b-fb4bca9749b6}</Project>
+      <Name>XP.DB.Comm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\项目\XP公共类库\数据库\XP.DB.Future\XP.DB.Future.csproj">
+      <Project>{45249af8-673d-4244-9edb-181ac79ea12f}</Project>
+      <Name>XP.DB.Future</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XP.DB.MiniEF\XP.DB.MiniEF.csproj">
+      <Project>{639f025f-a8d1-4294-807a-48d465843713}</Project>
+      <Name>XP.DB.MiniEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XP.DbEntity\XP.DB.DbEntity.csproj">
+      <Project>{bd17f8e4-ddbf-4a37-beea-600616bc6794}</Project>
+      <Name>XP.DB.DbEntity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
