@@ -26,7 +26,7 @@
             <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/db.mdb" SelectCommand="SELECT * FROM [ProviderT]"></asp:AccessDataSource>
 
             <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="AccessDataSource1">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                     <asp:BoundField DataField="AliasName" HeaderText="AliasName" SortExpression="AliasName" />

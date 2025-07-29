@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using XP.DB.DbEntity;
 using XP.DB.Future;
 using XP.DB.ProviderManage;
+using XP.Util.WebUtils;
 
 namespace 数据调整综合工具.Output
 {
@@ -65,6 +66,43 @@ namespace 数据调整综合工具.Output
             Response.Redirect(GoUrl);
 
 
+        }
+
+        public string GetUrl(object id)
+        {
+            string TableName = RequestUtil.FindString("tablename");
+
+            string Result = $"?tmid={id}";
+            if (String.IsNullOrEmpty(TableName))
+            {
+               
+
+            }
+            else
+            {
+                Result += "&tablename=" + TableName;
+            }
+            return Result;
+        }
+
+        //public string BuildUrl(System.Data.DataRowView row)
+        //{
+
+        //    return null;
+        //}
+        public string BuildUrl(TemplateT row)
+        {
+            string TableName = RequestUtil.FindString("tablename");
+            string Result = null;
+            if (String.IsNullOrEmpty(TableName))
+            {
+                return null;
+            }
+            else
+            {
+                Result = $"ViewTM.aspx?tmid={row.Id}&tablename={TableName}" ;
+            }
+            return Result;
         }
     }
 }

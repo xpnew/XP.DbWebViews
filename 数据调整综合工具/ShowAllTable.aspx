@@ -17,7 +17,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div><a href="Tables/RowsCount.aspx">跳到行数
+    <div>
     
 
         <asp:GridView ID="GridView1" runat="server" CssClass="tb01" style="margin-top: 0px" AutoGenerateColumns="False">
@@ -36,7 +36,7 @@
         <br />
         <br />
         跳转到存储过程&gt;&gt;&gt;  
-        <br />
+        <br /><a href="Tables/RowsCount.aspx">跳到行数</a>
         <br />
             <a href="Tables/RowsCount.aspx">跳到行数统计>>>>
         <br />

@@ -83,7 +83,7 @@ namespace 数据调整综合工具
             foreach (var col in dt)
             {
 
-                string PropertyString = _ResultLineTM.Replace("{TM:PropertyTypeName}", col.ColumnName);
+                string PropertyString = _ResultLineTM.Replace("{TM:ColumnName}", col.ColumnName);
                 //PropertyString = PropertyString.Replace("{TM:PropertyType}", col.PropertyType.Name);
                 PropertyString = PropertyString.Replace("{TM:PropertyType}", col.PropertyTypeName);
                 PropertyString = PropertyString.Replace("{TM:ColumnType}", col.ColumnTypeName);

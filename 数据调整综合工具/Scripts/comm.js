@@ -530,9 +530,12 @@ function UrlRegEx(url) {
     return arr;
 
 }
-function Debug(msg) {
+function Debug(msg,obj) {
     if (window.console && window.console.log) {
-        console.log(msg);
+        if(null == obj)
+            console.log(msg);
+        else
+            console.log(msg,obj);
     }
 }
 

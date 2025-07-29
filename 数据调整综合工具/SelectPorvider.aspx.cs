@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,12 +15,36 @@ namespace 数据调整综合工具
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+
+
             if ("save" == Request["act"])
             {
                 Save();
 
+                return;
             }
 
+            BindPage();
+        }
+
+
+        private void BindPage()
+        {
+            string ConnStr = XP.Util.Conf.ConnStr;
+
+            var Provider = new XP.DB.Future.OleDb.OleProvider(ConnStr);
+
+            string sql = "SELECT * FROM [ProviderT]";
+
+            var da = Provider.CreateAdapter(sql);
+
+            var ds = new DataSet();
+
+            da.Fill(ds);
+
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
         }
 
         private void Save()

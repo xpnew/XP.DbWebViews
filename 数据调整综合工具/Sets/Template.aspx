@@ -7,8 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 
-            <script src="../Scripts/jquery-1.8.3.min.js"></script>
+    <link href="../css/comm.css" rel="stylesheet" />
+    <link href="../css/base.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.8.3.min.js"></script>
     <script src="../Scripts/comm.js"></script>
+
 
     <script type="text/javascript">
 
@@ -29,7 +32,7 @@
            <a href="Template_Edit.aspx" target="_blank">添加&gt;&gt;&gt;&gt;</a> </p>
         <p>
             <br />
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" OnRowDataBound="GridView1_RowDataBound">
+            <asp:GridView ID="GridView1" runat="server" CssClass="tb01" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" OnRowDataBound="GridView1_RowDataBound">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                     <asp:BoundField DataField="Tit" HeaderText="Tit" SortExpression="Tit" />

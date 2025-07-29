@@ -36,6 +36,17 @@
         </fieldset>
 
         <fieldset>
+            <legend>管理SQL 备注</legend>
+            <ul>
+
+                <li>           <a href="LoadSqlDesc.aspx?tablename=<%= TableInfo.ObjectName %>">载入说明备注</a>      </li>
+
+            </ul>
+
+        </fieldset>
+
+
+        <fieldset>
             <legend>IBatis 辅助（XML映射、标准增删改查等等）</legend>
             <ul>
 

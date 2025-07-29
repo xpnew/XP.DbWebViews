@@ -21,6 +21,12 @@ namespace 数据调整综合工具
             {
                 Save();
                 return;
+            } 
+            
+            if ("loadone" == Request["act"])
+            {
+                LoadOne();
+                return;
             }
 
 
@@ -71,6 +77,28 @@ namespace 数据调整综合工具
             JsonErr("ERROR");
 
         }
+
+        protected void  LoadOne()
+        {
+            string TableName = Request["TableName"];
+            string sql_TM = @"select ds.value 
+from sys.extended_properties ds  left join sysobjects  tbs  
+on ds.major_id =  tbs.id
+
+where ds.minor_id=0 and tbs.type='u' and tbs.name='{TM:TableName}'";
+
+            string sql_curr = sql_TM.Replace("{TM:TableName}", TableName);
+            var ooo = CurrentProvider.SingleColumn(sql_curr);
+            if (null != ooo && DBNull.Value != ooo)
+            {
+
+                SayJson( (string)ooo);
+            }
+            JsonErr("返回数据为空");
+        }
+
+
+    
         private void BindPage()
         {
 

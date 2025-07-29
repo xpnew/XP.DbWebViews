@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using XP.DB.DbEntity;
 using XP.DB.Future;
+using XP.DB.Future.SqlDb;
 using XP.DB.ProviderManage;
 using XP.IO.ExcelUtil;
 using XP.Util.JSON;
@@ -29,6 +30,12 @@ namespace 数据调整综合工具
                 return;
             }
 
+            if ("WriteBackOne" == Request["act"])
+            {
+                WriteBackOne();
+                return;
+            }
+
             if ("import" == Request["act"])
             {
                 Import();
@@ -39,6 +46,8 @@ namespace 数据调整综合工具
                 ClearAllColumns();
                 return;
             }
+
+
             BindPage();
         }
 
@@ -82,6 +91,7 @@ namespace 数据调整综合工具
 
         }
 
+
         private int DAL_ClearColumns()
         {
             DbObjectDAL dal = new DbObjectDAL(SiteProvider);
@@ -120,9 +130,9 @@ namespace 数据调整综合工具
                 if (dtFinder.Any())
                 {
                     var dt = dtFinder.First();
-                    SaveTable(dt,true);
+                    SaveTable(dt, true);
                 }
-                XP.Util.WebUtils.PageUtil.xpnewAlert("提交成功",true);
+                XP.Util.WebUtils.PageUtil.xpnewAlert("提交成功", true);
             }
             else
             {
@@ -200,7 +210,7 @@ namespace 数据调整综合工具
                     GlobalName = ChsName,
 
                 };
-              ReturnValue=  dal.InsertModel(NewItem);
+                ReturnValue = dal.InsertModel(NewItem);
             }
 
 
@@ -257,6 +267,36 @@ namespace 数据调整综合工具
 
 
                 SayJson("OK");
+                //XP.Util.Web.PageMsg.Write("OK");
+            }
+
+            JsonErr("ERROR");
+
+        }
+        private void WriteBackOne()
+        {
+            var Model = Request["Model"];
+
+            ModelRecognize<DbObjectT> ModelEngine = new ModelRecognize<DbObjectT>("Model");
+            var NewModel = ModelEngine.GetModel();
+
+
+            if (0 < ModelEngine.FoundNamesCount)
+            {
+                var Entity = ModelEngine.GetModel();
+
+
+                var Provider = GetProvider();
+
+                var ss = Provider.Analyzer;
+
+                var sqlanz = (SqlTableAnalyze)ss;
+
+                var flag = sqlanz.WriteDesciption(TableInfo.ObjectName, Entity.GlobalName, Entity.ObjectName);
+
+
+                if (flag)
+                    SayJson("OK");
                 //XP.Util.Web.PageMsg.Write("OK");
             }
 

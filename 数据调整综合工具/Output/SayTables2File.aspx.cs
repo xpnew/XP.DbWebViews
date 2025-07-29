@@ -23,7 +23,7 @@ namespace 数据调整综合工具.Output
 
 
         private TemplateT _Template;
-         
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -100,15 +100,15 @@ namespace 数据调整综合工具.Output
 
             var ListTable = dal.GetTables(CurrentProviderSet.Id);
 
-            if (!XP.Util.WebUtils.PathUtil.ExistDir(_Dir,true))
+            if (!XP.Util.WebUtils.PathUtil.ExistDir(_Dir, true))
             {
                 return;
             }
-                       if (!String.IsNullOrEmpty(_Template.FileNameTemplate))
-                {
-                    _FilenameTm = _Template.FileNameTemplate;
-                }
-     string DirPath = XP.Util.WebUtils.PathUtil.GetRootPath() + "\\" + _Dir;
+            if (!String.IsNullOrEmpty(_Template.FileNameTemplate))
+            {
+                _FilenameTm = _Template.FileNameTemplate;
+            }
+            string DirPath = XP.Util.WebUtils.PathUtil.GetRootPath() + "\\" + _Dir;
             foreach (DataRow row in dt.Rows)
             {
                 string ObjectName = row["name"].ToString();

@@ -40,6 +40,9 @@ a.orange{color:#f68236;} /*skin-color*/
 
 .bold1{color:#7d7d7d;  font-family:"黑体", "微软雅黑", "Arial Black";  font-weight:bold;}
 
+/* 表示 单元格获得焦点 */
+td.focus { border: 2px dotted #e70aa6 ;}
+
 /* 
 不同区块之间的空白间隙， 配合div.room2size 使用，通过指定具体数字确定两块之间的间隙
 例如：

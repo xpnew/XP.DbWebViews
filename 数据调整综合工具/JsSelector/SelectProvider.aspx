@@ -9,7 +9,6 @@
     <link href="../css/jquery.jgrowl.min.css" rel="stylesheet" />
     <script src="../Scripts/jquery-1.8.3.min.js"></script>
     <script src="../scripts/jquery.jgrowl.min.js"></script>
-    <script src="../scripts/jquery.jgrowl.min.js"></script>
     <script src="../scripts/comm.js"></script>
 
     <script type="text/javascript" language="javascript">

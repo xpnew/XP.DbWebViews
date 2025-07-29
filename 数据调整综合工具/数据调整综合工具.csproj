@@ -130,6 +130,7 @@
     <Content Include="Output\SayTables2File.aspx" />
     <Content Include="Output\SayTables2TextArea.aspx" />
     <Content Include="Output\SelectTM.aspx" />
+    <Content Include="Output\ViewTM.aspx" />
     <Content Include="Scripts\comm.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
@@ -276,6 +277,13 @@
     </Compile>
     <Compile Include="Output\SelectTM.aspx.designer.cs">
       <DependentUpon>SelectTM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Output\ViewTM.aspx.cs">
+      <DependentUpon>ViewTM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Output\ViewTM.aspx.designer.cs">
+      <DependentUpon>ViewTM.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectPorvider.aspx.cs">

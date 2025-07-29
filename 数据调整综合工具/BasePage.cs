@@ -16,6 +16,8 @@ namespace 数据调整综合工具
     {
         protected WebMsg _PageMsg;
 
+        public bool HasError { get; set; } = false;
+
         public WebMsg PageMsg
         {
             get
@@ -110,12 +112,14 @@ namespace 数据调整综合工具
         protected void SayJson(string title)
         {
             PageMsg.StatusCode = 1;
+            PageMsg.Status = true;
             PageMsg.Title = title;
             SayJson();
         }
         protected void SayJsonOk(string title)
         {
             PageMsg.StatusCode = 1;
+            PageMsg.Status = true;
             PageMsg.Title = title;
             SayJson();
         }
