@@ -67,6 +67,7 @@ namespace 数据调整综合工具
             dt.Columns.Add(new System.Data.DataColumn() { Caption = "ColumnType", ColumnName = "ColumnType", DataType = typeof(string) });
             dt.Columns.Add(new System.Data.DataColumn() { Caption = "允空", ColumnName = "允空", DataType = typeof(string) });
             dt.Columns.Add(new System.Data.DataColumn() { Caption = "默认值", ColumnName = "默认值", DataType = typeof(string) });
+            dt.Columns.Add(new System.Data.DataColumn() { Caption = "合成说明", ColumnName = "合成说明", DataType = typeof(string) });
 
             dt.Columns.Add(new System.Data.DataColumn() { Caption = "GlobalName", ColumnName = "GlobalName", DataType = typeof(string) });
 
@@ -91,6 +92,7 @@ namespace 数据调整综合工具
                 {
                     NewRow["允空"] = "Y";
                 }
+                NewRow["合成说明"] = ColumnItem.GlobalName;
                 string DbDefault = ColumnItem.DefaultRules;
                 if (!String.IsNullOrEmpty(DbDefault))
                 {
@@ -104,18 +106,32 @@ namespace 数据调整综合工具
                 var SameNameList = ListTable.Where(m => m.ObjectName == ColumnItem.ColumnName);
                 if (null != SameNameList && SameNameList.Any())
                 {
-                    NewRow["GlobalName"] = SameNameList.First().GlobalName;
-                    NewRow["Summary"] = SameNameList.First().Summary;
-                    NewRow["Remarks"] = SameNameList.First().Remarks;
-                    NewRow["ObjectId"] = SameNameList.First().Id;
+                    var ExistCol = SameNameList.First();
+                    NewRow["GlobalName"] = ExistCol.GlobalName;
+                    NewRow["Summary"] = ExistCol.Summary;
+                    NewRow["Remarks"] = ExistCol.Remarks;
+                    NewRow["ObjectId"] = ExistCol.Id;
+                    string IngertDescription = ExistCol.GlobalName;
+
+                    if(!String.IsNullOrEmpty(ExistCol.Summary))
+                    {
+                        IngertDescription += " \n" + ExistCol.Summary;
+                    }   
+                    if(!String.IsNullOrEmpty(ExistCol.Remarks))
+                    {
+                        IngertDescription += " \n" + ExistCol.Remarks;
+                    }
+
+                    NewRow["合成说明"] = IngertDescription;
                 }
                 dt.Rows.Add(NewRow);
             }
 
 
             GridView2.DataSource = dt;
-
-            GridView2.DataBind();
+            GridView2.DataBind();         
+            GridView3.DataSource = dt;
+            GridView3.DataBind();
 
         }
 

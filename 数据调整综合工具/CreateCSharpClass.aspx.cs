@@ -27,8 +27,9 @@ namespace 数据调整综合工具
     /// {TM:TableGlobalName} （数据库 {TM:ClassName}表）
     /// </summary>
     [Serializable]
-    public class  {TM:ClassName}:IJsonEntity
+    public class  {TM:ClassName}: Comm.Entity.IntIdEntityBase
     {
+        //注意处理Id 字段
         
         {TM:AllProperty}
 

@@ -56,6 +56,19 @@
                 </Columns>
             </asp:GridView>
 
+            <br />     
+        <h3><%=this.TableInfo.GlobalName %>表[<%=this.TableInfo.ObjectName %>]</h3>
+            <asp:GridView ID="GridView3" runat="server" Style="margin-top: 0px" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="ColumnName" HeaderText="列名" />                  
+                    <asp:BoundField DataField="主键" HeaderText="键" />
+                    <asp:BoundField DataField="ColumnType" HeaderText="类型" />
+                    <asp:BoundField DataField="默认值" HeaderText="默认值" />
+                    <asp:BoundField DataField="允空" HeaderText="允空" />
+                    <asp:BoundField DataField="合成说明" HeaderText="说明" />
+                </Columns>
+            </asp:GridView>
+
             <br />
         <br />
         <br />

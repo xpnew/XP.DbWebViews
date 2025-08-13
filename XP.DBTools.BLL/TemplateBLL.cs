@@ -29,12 +29,14 @@ namespace XP.DBTools.BLL
         [DataObjectMethod(DataObjectMethodType.Update, false)]
         public int Update(TemplateT model)
         {
+            model.Cot = model.Cot.Replace("'", "''");
             return AutoDAL.UpdateModel(model);
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert, false)]
         public int Insert(TemplateT model)
         {
+            model.Cot = model.Cot.Replace("'", "''");
             return AutoDAL.InsertModel(model);
         }
         [DataObjectMethod(DataObjectMethodType.Delete, false)]

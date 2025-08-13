@@ -294,7 +294,7 @@
                     }
                     if (null != data.StatusCode) {
                         if (0 < data.StatusCode) {
-                           
+                            $(sender).parent().parent().children('td').eq(1).text(GlobalName);
                             Debug('成功返回！');
                         } else if (0 > data.StatusCode) {
                             alert('操作失败');
