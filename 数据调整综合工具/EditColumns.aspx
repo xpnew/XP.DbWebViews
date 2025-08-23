@@ -119,6 +119,10 @@
             $('.OneObjectSubmit').click(function () {
                 SaveOne(this);
             });
+            $('.BT_LoadOne').click(function () {
+                LoadOne(this);
+            });
+
             $('.BT_WriteBackOne').click(function () {
                 WriteBackOne(this);
             });
@@ -212,7 +216,48 @@
             }
             Debug('new  ColumnsNameChsIndex : ' + ColumnsNameChsIndex);
         }
+        function LoadOne(sender) {
+            var GlobalName = $(sender).siblings('input[name="GlobalName"]').val();
+            var Summary = $(sender).siblings('input[name="Summary"]').val();
+            var Remarks = $(sender).siblings('textarea[name="Remarks"]').val();
+            var ObjectId = $(sender).siblings('input[name="ObjectId"]').val();
+            var ObjectName = $(sender).siblings('input[name="ObjectName"]').val();
 
+            var Path = '?act=loadone&tablename=' + getRequestQueryString('tablename') +'&ColumnName=' + ObjectName
+            Path += '&_dx=' + Math.random();
+            $.get(Path, function (data) {
+                if (null != data) {
+                    if (typeof (data) == 'string') {
+                        data = $.parseJSON(data);
+                    }
+                    if (null != data.StatusCode) {
+                        Debug('StatusCode ' + data.StatusCode);
+                        Debug('Name ' + data.Name);
+                        Debug('Title ' + data.Title);
+                        Debug('Body ' + data.Body);
+                        if (0 < data.StatusCode) {
+
+                            GlobalName = data.Title;
+                            $(sender).parent().parent().children('td').eq(1).text(GlobalName);
+                            $(sender).siblings('input[name="GlobalName"]').val(GlobalName);
+                            Debug('成功返回！');
+                        } else if (0 > data.StatusCode) {
+                            alert('操作失败:' + data.Title);
+                        } else {
+                            alert('返回异常');
+                        }
+                        return;
+                    }
+
+                    alert(data);
+
+                } else {
+                    alert("返回错误");
+                }
+            });
+
+
+        }
         function SaveOne(sender) {
             var GlobalName = $(sender).siblings('input[name="GlobalName"]').val();
             var Summary = $(sender).siblings('input[name="Summary"]').val();
@@ -334,6 +379,7 @@
                             <input id="Hidden5" name="ObjectId" type="hidden" value="<%#Eval("ObjectId") %>" />
                             <input id="Hidden6" name="ObjectName" type="hidden" value="<%#Eval("ColumnName") %>" />
                             <input id="Button1" class="OneObjectSubmit" type="button" value="修改" />
+<input id="Button2" class="BT_LoadOne"  type="button" value="载入.."  title="从数据库载入对象说明 "/>
                             <input id="Button2" class="BT_WriteBackOne" type="button" value="回写" />
                         </ItemTemplate>
                     </asp:TemplateField>

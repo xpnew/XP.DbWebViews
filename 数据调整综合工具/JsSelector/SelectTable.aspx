@@ -279,6 +279,35 @@
                 }
             }
         </script>
+        <script type="text/javascript">
+
+            $(function () {
+                // 全选/全不选功能
+                $('#SelectAll01').on('change', function () {
+                    const isChecked = $(this).prop('checked');
+                    // 批量设置所有子复选框的选中状态
+                    $('.ColumnNameChecked').prop('checked', isChecked);
+                });
+
+                // 子复选框变化时更新全选框状态
+                $('.ColumnNameChecked').on('change', function () {
+                    const allCheckboxes = $('.ColumnNameChecked');
+                    const checkedCount = allCheckboxes.filter(':checked').length;
+
+                    // 全选状态判断
+                    if (checkedCount === allCheckboxes.length) {
+                        $('#SelectAll01').prop('checked', true);
+                    } else {
+                        $('#SelectAll01').prop({
+                            checked: false,
+                            indeterminate: false
+                        });
+                    }
+                });
+            });
+        </script>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -310,6 +339,9 @@
             <asp:GridView ID="GridView2" runat="server" CssClass="tb01" Style="margin-top: 0px" AutoGenerateColumns="False" RowStyle-CssClass="rightline">
                 <Columns>
                     <asp:TemplateField HeaderText="选择">
+                        <HeaderTemplate>
+                             <input type="checkbox" class="SelectAll01" id="SelectAll01"  /><label for="SelectAll01">全选</label>
+                        </HeaderTemplate>
                         <ItemTemplate>
                           <input type="checkbox" class="ColumnNameChecked" checked="checked" value="<%# Eval("ColumnName") %>"   />
                             

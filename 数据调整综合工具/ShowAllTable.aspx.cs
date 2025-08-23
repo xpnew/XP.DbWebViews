@@ -8,6 +8,9 @@ using XP.DB.DbEntity;
 using XP.DB.Future;
 
 using System.Data;
+using XP.DB.ProviderManage;
+using System.Threading.Tasks;
+using XP.Util.Threadings;
 
 namespace 数据调整综合工具
 {
@@ -23,7 +26,7 @@ namespace 数据调整综合工具
 
         private void BindPage()
         {
-         
+
 
             ProviderInfo CurrentProviderSet = Session["CurrentProvider"] as ProviderInfo;
 
@@ -51,7 +54,25 @@ where ds.minor_id=0 and tbs.type='u' and tbs.name='{TM:TableName}'";
                 var SameNameList = ListTable.Where(m => m.ObjectName == TableName);
                 if (null != SameNameList && SameNameList.Any())
                 {
-                    row["GlobalName"] = SameNameList.First().GlobalName;
+                    string GlobalName = SameNameList.First().GlobalName;
+                    if (!String.IsNullOrEmpty(GlobalName))
+                        row["GlobalName"] = SameNameList.First().GlobalName;
+                    else
+                    {
+                        string sql_curr = sql_TM.Replace("{TM:TableName}", TableName);
+                        var ooo = CurrentProvider.SingleColumn(sql_curr);
+                        if (null != ooo && DBNull.Value != ooo)
+                        {
+                            GlobalName = ooo.ToString();
+                            row["GlobalName"] = GlobalName;
+
+                            AsyncTask.BuildBGAsync(() =>
+                            {
+                                UpdateTable(SameNameList.First().Id, TableName, GlobalName);
+                            });
+
+                        }
+                    }
                 }
                 else
                 {
@@ -59,7 +80,14 @@ where ds.minor_id=0 and tbs.type='u' and tbs.name='{TM:TableName}'";
                     var ooo = CurrentProvider.SingleColumn(sql_curr);
                     if (null != ooo && DBNull.Value != ooo)
                     {
-                        row["GlobalName"] = ooo.ToString();
+                        string GlobalName = ooo.ToString();
+                        row["GlobalName"] = GlobalName;
+
+                        AsyncTask.BuildBGAsync(() =>
+                        {
+                            UpdateTable(-999999, TableName, GlobalName);
+                        });
+
                     }
                 }
             }
@@ -69,6 +97,36 @@ where ds.minor_id=0 and tbs.type='u' and tbs.name='{TM:TableName}'";
             GridView1.DataSource = dt;
 
             GridView1.DataBind();
+
+        }
+
+
+        protected void UpdateTable(int tableId, string tableName, string tableGlobal)
+        {
+            DbObjectDAL dal = new DbObjectDAL(SiteProvider);
+
+            var Model = dal.GetItemById(tableId);
+
+
+            if (null == Model)
+            {
+                var NewModel = new DbObjectT();
+                NewModel.ProviderId = CurrentProviderSet.Id;
+                NewModel.ObjectName = tableName;
+                NewModel.GlobalName = tableGlobal;
+                NewModel.Remarks = "(从数据库说明复制)";
+                int Id = dal.InsertEntity(NewModel);
+
+                return;
+            }
+            Model.GlobalName = tableGlobal;
+
+            string sql = $"UPDATE [DbObjectT] SET [GlobalName]='{tableGlobal}'  WHERE  [Id]={tableId}";
+
+
+            int Return = dal.ExcuteSql(sql);
+
+
 
         }
 

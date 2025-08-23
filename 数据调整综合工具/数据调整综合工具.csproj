@@ -124,6 +124,7 @@
     <Content Include="Images\Icon\sina.png" />
     <Content Include="Images\Icon\submitBtn.png" />
     <Content Include="Images\Icon\ysyuan.png" />
+    <Content Include="Import\ImportS3.aspx" />
     <Content Include="JsSelector\SelectProvider.aspx" />
     <Content Include="JsSelector\SelectTable.aspx" />
     <Content Include="Output\SayColumns2TextArea.aspx" />
@@ -231,6 +232,13 @@
     </Compile>
     <Compile Include="HasProviderBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Import\ImportS3.aspx.cs">
+      <DependentUpon>ImportS3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Import\ImportS3.aspx.designer.cs">
+      <DependentUpon>ImportS3.aspx</DependentUpon>
     </Compile>
     <Compile Include="JsSelector\SelectPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
